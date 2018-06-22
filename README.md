@@ -1,5 +1,8 @@
 # Leha Box Bot
-Telegram bot who knows is Alexey right or not.
+Telegram bot who knows is Alexey right or not with the single line of
+```
+/checkLeha
+```
 
 In order to run:
 - Generate your bot's token;
