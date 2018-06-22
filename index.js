@@ -9,7 +9,7 @@ const token = argv.token;
 const bot = new TelegramBot(token, {polling: true});
 
 // Matches "/echo [whatever]"
-bot.onText(/\/lehaPrav\? (.+)/, (msg, match) => {
+bot.onText(/\/LehaPrav\? (.+)/, (msg, match) => {
     // 'msg' is the received Message from Telegram
     // 'match' is the result of executing the regexp above on the text content
     // of the message
