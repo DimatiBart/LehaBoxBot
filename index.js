@@ -6,7 +6,7 @@ const token = argv.token || process.env.token;
 
 const bot = new TelegramBot(token, {polling: true});
 
-bot.onText(/\/prav/, (msg, match) => {
+bot.onText(/\/checkLeha/, (msg, match) => {
 
     const chatId = msg.chat.id;
     const resp = isLehaRight();
