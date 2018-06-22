@@ -1,7 +1,7 @@
 {
   "name": "leha_box_bot",
   "version": "1.0.0",
-  "description": "Bot which knows Alexey is right or not.",
+  "description": "Telegram bot who knows is Alexey right or not.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
