@@ -1,5 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api'),
-    argv = require('yargs').argv;
+    argv = require('yargs').argv,
+    isLehaRight = require('./LehaBox');
 
 // replace the value below with the Telegram token you receive from @BotFather
 const token = argv.token;
@@ -8,13 +9,13 @@ const token = argv.token;
 const bot = new TelegramBot(token, {polling: true});
 
 // Matches "/echo [whatever]"
-bot.onText(/\/echo (.+)/, (msg, match) => {
+bot.onText(/\/lehaPrav\? (.+)/, (msg, match) => {
     // 'msg' is the received Message from Telegram
     // 'match' is the result of executing the regexp above on the text content
     // of the message
 
     const chatId = msg.chat.id;
-    const resp = match[1]; // the captured "whatever"
+    const resp = isLehaRight();
 
     // send back the matched "whatever" to the chat
     bot.sendMessage(chatId, resp);
