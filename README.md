@@ -1,7 +1,7 @@
 # Leha Box Bot
 Telegram bot who knows is Alexey right or not with the single line of
 ```
-/checkLeha
+/check
 ```
 
 In order to run:
