@@ -38,7 +38,7 @@ const getMessageAccordingToState = (chatId) => {
         makeFactRepeated(chatId);
     }
 
-    return getMessage(factState);
+    return getMessage(factState[chatId]);
 };
 
 module.exports = getMessageAccordingToState;
