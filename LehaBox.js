@@ -1,20 +1,22 @@
 let factState = {};
 
-const setState = (isLehaRight, timeStamp, isRepeated) => {
-    factState = {
+const setState = (chatId, isLehaRight, timeStamp, isRepeated) => {
+    factState[chatId] = {
         isLehaRight,
         timeStamp,
         isRepeated
     };
 };
 
-const makeFactRepeated = () => {
-    factState.isRepeated = true;
+const makeFactRepeated = (chatId) => {
+    factState[chatId].isRepeated = true;
 };
 
-const isFactOutdated = (currentTime) => factState.timeStamp + periodOfFact < currentTime;
-
-setState(false, 0, false);
+const isFactOutdated = (chatId, currentTime) => (
+    factState[chatId] ?
+        factState[chatId].timeStamp + periodOfFact < currentTime :
+        true
+);
 
 const checkLeha = () => Math.random() > 0.5;
 
@@ -25,15 +27,15 @@ const getMessage = ({isLehaRight, isRepeated}) => {
     return isRepeated ? `Повторяю, ${factMessage}` : factMessage;
 };
 
-const getMessageAccordingToState = () => {
+const getMessageAccordingToState = (chatId) => {
     let currentTime = new Date();
 
-    if (isFactOutdated(currentTime)) {
+    if (isFactOutdated(chatId, currentTime)) {
         //time to change bot's mind
-        setState(checkLeha(), currentTime, false);
+        setState(chatId, checkLeha(), currentTime, false);
     }
     else {
-        makeFactRepeated();
+        makeFactRepeated(chatId);
     }
 
     return getMessage(factState);

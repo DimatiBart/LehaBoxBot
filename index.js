@@ -9,7 +9,7 @@ const bot = new TelegramBot(token, {polling: true});
 bot.onText(/\/check/, (msg, match) => {
 
     const chatId = msg.chat.id;
-    const resp = isLehaRight();
+    const resp = isLehaRight(chatId);
 
     bot.sendMessage(chatId, resp);
 });
